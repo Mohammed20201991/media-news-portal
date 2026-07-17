@@ -1,0 +1,14 @@
+*.sqlite
+/tests
+/dusk
+/debugbar
+/vendor
+/node_modules
+/storage/app
+/storage/framework
+/storage/logs
+/.env
+/.env.backup
+/.phpunit.result.cache
+/bootstrap/cache/*.php
+!/bootstrap/cache/.gitignore
