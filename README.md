@@ -24,6 +24,34 @@ cd media-news-portal
 ```bash
 composer require tcg/voyager
 ```
+## Prerequisites
+
+Before installing the project, ensure the following software is available on your system:
+
+| Component       | Required Version          | Notes                                      |
+| --------------- | ------------------------- | ------------------------------------------ |
+| PHP             | 8.2.x or higher           | Project developed with PHP 8.2.12          |
+| Composer        | 2.x                       | Dependency manager for Laravel             |
+| MySQL / MariaDB | MySQL 8+ or MariaDB 10.5+ | Database server                            |
+| Git             | 2.x or higher             | Version control                            |
+| Node.js         | Optional                  | Needed only for frontend asset compilation |
+
+### Verify the installation
+
+```bash
+php -v
+composer -V
+git --version
+```
+
+### Create the database
+
+Create a database before running the Voyager installer:
+
+```sql
+CREATE DATABASE media_news CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
 
 ### 4. Configure the database in `.env`
 
