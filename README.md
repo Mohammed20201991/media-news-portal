@@ -90,10 +90,16 @@ git push -u origin voyager-setup
 
 ## Current Status
 
-✅ Laravel 10 installed
+✅ Laravel 10 installed 
+
 ✅ Voyager installed
+
 ✅ Voyager dummy data installed
+
 ✅ Admin panel working at `/admin`
+
 ✅ Git repository initialized
+
 ✅ GitHub private repository connected
+
 ✅ `voyager-setup` branch pushed
