@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
-
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,5 +24,9 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Route::get('/category/{slug}', [CategoryController::class, 'show'])
+// Route::get('/category/{slug}', [CategoryController::class, 'show'])
+//     ->name('category.show');
+
+Route::get('/category/{slug}',
+    [CategoryController::class,'show'])
     ->name('category.show');

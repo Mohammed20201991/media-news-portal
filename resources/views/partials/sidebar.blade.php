@@ -37,7 +37,7 @@
         @foreach($categories as $category)
 
             <a
-                href="#"
+                href="{{ route('category.show',$category->slug) }}"
                 class="list-group-item">
 
                 {{ $category->name }}

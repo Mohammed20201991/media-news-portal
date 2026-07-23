@@ -42,7 +42,7 @@ Home
 
 <a class="nav-link"
 
-href="#">
+href="{{ route('category.show',$category->slug) }}">
 
 {{ $category->name }}
 

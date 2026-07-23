@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use TCG\Voyager\Models\Post;
+// use TCG\Voyager\Models\Post;
 use TCG\Voyager\Models\Category;
 use TCG\Voyager\Models\Page;
-
+use App\Models\Post;
 class HomeController extends Controller
 {
 public function index()
