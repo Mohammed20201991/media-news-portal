@@ -23,3 +23,6 @@ Route::get('/news/{slug}', [NewsController::class, 'show'])
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Route::get('/category/{slug}', [CategoryController::class, 'show'])
+    ->name('category.show');

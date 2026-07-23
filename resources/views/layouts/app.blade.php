@@ -3,16 +3,42 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Media News Portal</title>
+    <title>@yield('title','Media News Portal')</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <style>
+
+        body{
+            background:#f5f5f5;
+        }
+
+        .navbar-brand{
+            font-size:26px;
+            font-weight:bold;
+        }
+
+        .news-card img{
+            height:220px;
+            object-fit:cover;
+        }
+
+        .hero-image{
+            height:500px;
+            object-fit:cover;
+        }
+
+        footer{
+            margin-top:60px;
+        }
+
+    </style>
 
 </head>
 
@@ -20,15 +46,15 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
 
 @include('partials.navbar')
 
-<main class="container mt-4">
+<div class="container mt-4">
 
     @yield('content')
 
-</main>
+</div>
 
 @include('partials.footer')
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

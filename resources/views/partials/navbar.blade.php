@@ -3,25 +3,35 @@
 <div class="container">
 
 <a class="navbar-brand" href="{{ route('home') }}">
-    Media Portal
+
+<i class="bi bi-newspaper"></i>
+
+Media Portal
+
 </a>
 
 <button class="navbar-toggler"
+
 data-bs-toggle="collapse"
-data-bs-target="#menu">
+
+data-bs-target="#navbar">
 
 <span class="navbar-toggler-icon"></span>
 
 </button>
 
-<div class="collapse navbar-collapse" id="menu">
+<div class="collapse navbar-collapse" id="navbar">
 
 <ul class="navbar-nav me-auto">
 
 <li class="nav-item">
 
-<a class="nav-link" href="{{ route('home') }}">
+<a class="nav-link"
+
+href="{{ route('home') }}">
+
 Home
+
 </a>
 
 </li>
@@ -31,6 +41,7 @@ Home
 <li class="nav-item">
 
 <a class="nav-link"
+
 href="#">
 
 {{ $category->name }}
@@ -43,35 +54,23 @@ href="#">
 
 </ul>
 
-<ul class="navbar-nav">
+<form class="d-flex me-3">
 
-@foreach($pages as $page)
+<input
 
-<li class="nav-item">
+class="form-control"
 
-<a class="nav-link"
-href="#">
+placeholder="Search news">
 
-{{ $page->title }}
+</form>
 
-</a>
+<a href="/admin"
 
-</li>
-
-@endforeach
-
-<li class="nav-item">
-
-<a class="nav-link"
-href="/admin">
+class="btn btn-warning">
 
 Admin
 
 </a>
-
-</li>
-
-</ul>
 
 </div>
 

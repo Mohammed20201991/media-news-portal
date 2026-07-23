@@ -8,27 +8,18 @@ use TCG\Voyager\Models\Page;
 
 class HomeController extends Controller
 {
-    public function index()
+public function index()
     {
-        $featured = Post::where('status', 'PUBLISHED')
-                        ->where('featured', 1)
+        $featured = Post::where('status','PUBLISHED')
+                        ->where('featured',1)
                         ->latest()
                         ->take(5)
                         ->get();
 
-        $posts = Post::where('status', 'PUBLISHED')
-                     ->latest()
-                     ->paginate(9);
+        $posts = Post::where('status','PUBLISHED')
+                    ->latest()
+                    ->paginate(9);
 
-        $categories = Category::orderBy('order')->get();
-
-        $pages = Page::where('status','ACTIVE')->get();
-
-        return view('home', compact(
-            'featured',
-            'posts',
-            'categories',
-            'pages'
-        ));
+        return view('home', compact('featured','posts'));
     }
 }
