@@ -54,13 +54,21 @@ href="{{ route('category.show',$category->slug) }}">
 
 </ul>
 
-<form class="d-flex me-3">
+<form class="d-flex me-3"
+      action="{{ route('search') }}"
+      method="GET">
 
-<input
+    <input
 
-class="form-control"
+        class="form-control"
 
-placeholder="Search news">
+        type="search"
+
+        name="q"
+
+        value="{{ request('q') }}"
+
+        placeholder="Search news...">
 
 </form>
 

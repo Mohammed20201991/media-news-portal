@@ -20,7 +20,8 @@
 
             <p>
 
-                {{ Str::limit(strip_tags($post->excerpt),120) }}
+                <!-- {{ Str::limit(strip_tags($post->excerpt),120) }} -->
+                  {{ \Illuminate\Support\Str::limit(strip_tags($post->excerpt ?? $post->body),120) }}
 
             </p>
 
