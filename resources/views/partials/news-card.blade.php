@@ -1,35 +1,43 @@
-<div class="col-lg-4 col-md-6 mb-4">
+<div class="col-lg-4 mb-4">
 
-<div class="card h-100">
+    <div class="card h-100 shadow-sm">
 
-<img
-class="card-img-top"
-src="{{ Voyager::image($post->image) }}">
+        @if($post->image)
 
-<div class="card-body">
+            <img
+                src="{{ Voyager::image($post->image) }}"
+                class="card-img-top">
 
-<h5>
+        @endif
 
-{{ $post->title }}
+        <div class="card-body">
 
-</h5>
+            <h5>
 
-<p>
+                {{ $post->title }}
 
-{{ Str::limit(strip_tags($post->excerpt),120) }}
+            </h5>
 
-</p>
+            <p>
 
-<a
-class="btn btn-outline-primary"
-href="{{ route('news.show',$post->slug) }}">
+                {{ Str::limit(strip_tags($post->excerpt),120) }}
 
-Read More
+            </p>
 
-</a>
+        </div>
 
-</div>
+        <div class="card-footer bg-white">
 
-</div>
+            <a
+                href="{{ route('news.show',$post->slug) }}"
+                class="btn btn-outline-primary">
+
+                Read More
+
+            </a>
+
+        </div>
+
+    </div>
 
 </div>

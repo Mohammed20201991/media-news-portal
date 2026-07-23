@@ -1,32 +1,85 @@
 @if($featured->count())
 
-<div class="card mb-4">
+<div class="row mb-4">
 
-<img class="card-img-top"
-src="{{ Voyager::image($featured->first()->image) }}">
+    <!-- Main Featured -->
 
-<div class="card-body">
+    <div class="col-lg-8">
 
-<h2>
+        <div class="card border-0 shadow">
 
-{{ $featured->first()->title }}
+            <img
+                src="{{ Voyager::image($featured[0]->image) }}"
+                class="card-img-top hero-image">
 
-</h2>
+            <div class="card-body">
 
-<p>
+                <span class="badge bg-danger">
 
-{{ $featured->first()->excerpt }}
+                    Featured
 
-</p>
+                </span>
 
-<a class="btn btn-primary"
-href="{{ route('news.show',$featured->first()->slug) }}">
+                <h2 class="mt-3">
 
-Read More
+                    {{ $featured[0]->title }}
 
-</a>
+                </h2>
 
-</div>
+                <p>
+
+                    {{ $featured[0]->excerpt }}
+
+                </p>
+
+                <a
+                    href="{{ route('news.show',$featured[0]->slug) }}"
+                    class="btn btn-primary">
+
+                    Read More
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Side Featured -->
+
+    <div class="col-lg-4">
+
+        @foreach($featured->skip(1) as $post)
+
+            <div class="card mb-3">
+
+                <img
+                    src="{{ Voyager::image($post->image) }}"
+                    class="card-img-top">
+
+                <div class="card-body">
+
+                    <h6>
+
+                        {{ $post->title }}
+
+                    </h6>
+
+                    <a
+                        href="{{ route('news.show',$post->slug) }}">
+
+                        Read More
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        @endforeach
+
+    </div>
 
 </div>
 
