@@ -131,3 +131,6 @@ git push -u origin voyager-setup
 ✅ GitHub private repository connected
 
 ✅ `voyager-setup` branch pushed
+
+https://github.com/wintercms/winter
+https://voyager.devdojo.com/academy/
