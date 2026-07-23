@@ -10,8 +10,8 @@ class HomeController extends Controller
     {
         $featured = Post::latest()->take(5)->get();
 
-        $posts = Post::latest()->paginate(10);
+        $posts = Post::latest()->paginate(9);
 
-        return view('home', compact('featured','posts'));
+        return view('home', compact('featured', 'posts'));
     }
 }
