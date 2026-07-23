@@ -2,19 +2,23 @@
 
 @section('content')
 
-<h1>Latest News</h1>
+@include('partials.hero')
+
+<h3 class="mb-4">
+
+Latest News
+
+</h3>
+
+<div class="row">
 
 @foreach($posts as $post)
 
-<div>
-
-    <h2>{{ $post->title }}</h2>
-
-    <p>{{ Str::limit(strip_tags($post->body),150) }}</p>
-
-</div>
+@include('partials.news-card')
 
 @endforeach
+
+</div>
 
 {{ $posts->links() }}
 
