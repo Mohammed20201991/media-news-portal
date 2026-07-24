@@ -1,44 +1,30 @@
-<footer class="bg-dark text-white">
+<footer class="footer">
 
-<div class="container py-5">
+<div class="container">
 
 <div class="row">
 
-<div class="col-lg-4">
+<div class="col-md-4">
 
-<h4>
+<h5>About</h5>
 
-Media Portal
-
-</h4>
-
-<p>
-
-Professional Laravel News Portal powered by Voyager CMS.
-
-</p>
+<p>Professional multilingual news portal.</p>
 
 </div>
 
-<div class="col-lg-4">
+<div class="col-md-4">
 
-<h5>
+<h5>Categories</h5>
 
-Pages
+<ul>
 
-</h5>
-
-<ul class="list-unstyled">
-
-@foreach($pages as $page)
+@foreach($categories as $category)
 
 <li>
 
-<a class="text-white text-decoration-none"
+<a href="{{ route('category.show',$category->slug) }}">
 
-href="#">
-
-{{ $page->title }}
+{{ $category->name }}
 
 </a>
 
@@ -50,41 +36,19 @@ href="#">
 
 </div>
 
-<div class="col-lg-4">
+<div class="col-md-4">
 
-<h5>
+<h5>Follow Us</h5>
 
-Categories
+Facebook
 
-</h5>
+Twitter
 
-<ul class="list-unstyled">
-
-@foreach($categories as $category)
-
-<li>
-
-{{ $category->name }}
-
-</li>
-
-@endforeach
-
-</ul>
+YouTube
 
 </div>
 
 </div>
-
-<hr>
-
-<p class="text-center">
-
-© {{ date('Y') }}
-
-Media News Portal
-
-</p>
 
 </div>
 

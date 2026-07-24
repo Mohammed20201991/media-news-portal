@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\View;
 use TCG\Voyager\Models\Category;
 use TCG\Voyager\Models\Page;
 use TCG\Voyager\Models\Menu;
+use TCG\Voyager\Models\Post;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +29,12 @@ public function boot(): void
             ->with('items.children')
             ->first()
     );
+
+        $view->with('breakingPosts',
+            Post::where('featured',1)
+                ->latest()
+                ->take(5)
+                ->get());
 
     });
 }

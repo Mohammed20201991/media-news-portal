@@ -1,0 +1,47 @@
+body{
+    background:#f4f4f4;
+}
+
+.topbar{
+    background:#111;
+    color:white;
+    padding:8px;
+    font-size:14px;
+}
+
+.topbar a{
+    color:white;
+    text-decoration:none;
+    margin-left:10px;
+}
+
+.site-header{
+    background:white;
+    padding:25px 0;
+}
+
+.logo{
+    font-weight:700;
+}
+
+.news-navbar{
+    background:#b80000;
+}
+
+.breaking-news{
+    background:#ffcc00;
+    padding:10px;
+    font-weight:bold;
+}
+
+.footer{
+    background:#111;
+    color:white;
+    margin-top:60px;
+    padding:40px 0;
+}
+
+.footer a{
+    color:white;
+    text-decoration:none;
+}
