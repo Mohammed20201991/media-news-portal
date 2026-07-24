@@ -6,6 +6,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\RSSController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +42,6 @@ Route::get('/search',
 Route::get('/page/{slug}',
     [PageController::class,'show'])
     ->name('page.show');
+
+Route::get('/rss', [RSSController::class, 'index'])
+    ->name('rss');

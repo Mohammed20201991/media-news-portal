@@ -62,4 +62,7 @@
 </a>
 @endif
 
+<a href="{{ route('rss') }}" title="RSS Feed">
+    <i class="bi bi-rss-fill"></i>
+</a>
 </div>
