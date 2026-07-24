@@ -1,85 +1,78 @@
 @if($featured->count())
 
-<div class="row mb-4">
+<div id="heroSlider"
+     class="carousel slide mb-5"
+     data-bs-ride="carousel">
 
-    <!-- Main Featured -->
+<div class="carousel-inner">
 
-    <div class="col-lg-8">
+@foreach($featured as $post)
 
-        <div class="card border-0 shadow">
+<div class="carousel-item {{$loop->first?'active':''}}">
 
-            <img
-                src="{{ Voyager::image($featured[0]->image) }}"
-                class="card-img-top hero-image">
+@if($post->image)
 
-            <div class="card-body">
+<img class="d-block w-100 hero-image"
 
-                <span class="badge bg-danger">
+src="{{ Voyager::image($post->image) }}">
 
-                    Featured
+@endif
 
-                </span>
+<div class="carousel-caption">
 
-                <h2 class="mt-3">
+<span class="badge bg-danger">
 
-                    {{ $featured[0]->title }}
+Featured
 
-                </h2>
+</span>
 
-                <p>
+<h2>
 
-                    {{ $featured[0]->excerpt }}
+<a href="{{ route('news.show',$post->slug) }}">
 
-                </p>
+{{ $post->title }}
 
-                <a
-                    href="{{ route('news.show',$featured[0]->slug) }}"
-                    class="btn btn-primary">
+</a>
 
-                    Read More
+</h2>
 
-                </a>
+<p>
 
-            </div>
+{{ Str::limit(strip_tags($post->excerpt),150) }}
 
-        </div>
+</p>
 
-    </div>
+</div>
 
-    <!-- Side Featured -->
+</div>
 
-    <div class="col-lg-4">
+@endforeach
 
-        @foreach($featured->skip(1) as $post)
+</div>
 
-            <div class="card mb-3">
+<button class="carousel-control-prev"
 
-                <img
-                    src="{{ Voyager::image($post->image) }}"
-                    class="card-img-top">
+type="button"
 
-                <div class="card-body">
+data-bs-target="#heroSlider"
 
-                    <h6>
+data-bs-slide="prev">
 
-                        {{ $post->title }}
+<span class="carousel-control-prev-icon"></span>
 
-                    </h6>
+</button>
 
-                    <a
-                        href="{{ route('news.show',$post->slug) }}">
+<button class="carousel-control-next"
 
-                        Read More
+type="button"
 
-                    </a>
+data-bs-target="#heroSlider"
 
-                </div>
+data-bs-slide="next">
 
-            </div>
+<span class="carousel-control-next-icon"></span>
 
-        @endforeach
-
-    </div>
+</button>
 
 </div>
 

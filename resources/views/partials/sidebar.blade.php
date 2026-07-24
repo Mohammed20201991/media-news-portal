@@ -1,51 +1,27 @@
-<div class="card mb-4">
+<div class="card">
 
-    <div class="card-header">
+<div class="card-header">
 
-        Latest News
-
-    </div>
-
-    <div class="list-group list-group-flush">
-
-        @foreach($posts->take(5) as $post)
-
-            <a
-                href="{{ route('news.show',$post->slug) }}"
-                class="list-group-item">
-
-                {{ $post->title }}
-
-            </a>
-
-        @endforeach
-
-    </div>
+Latest
 
 </div>
 
-<div class="card">
+<ul class="list-group list-group-flush">
 
-    <div class="card-header">
+@foreach($latestPosts as $post)
 
-        Categories
+<li class="list-group-item">
 
-    </div>
+<a href="{{ route('news.show',$post->slug) }}">
 
-    <div class="list-group list-group-flush">
+{{ $post->title }}
 
-        @foreach($categories as $category)
+</a>
 
-            <a
-                href="{{ route('category.show',$category->slug) }}"
-                class="list-group-item">
+</li>
 
-                {{ $category->name }}
+@endforeach
 
-            </a>
-
-        @endforeach
-
-    </div>
+</ul>
 
 </div>

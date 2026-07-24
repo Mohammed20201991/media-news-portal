@@ -45,3 +45,40 @@ body{
     color:white;
     text-decoration:none;
 }
+
+.section-title{
+    border-left:5px solid #b80000;
+    padding-left:10px;
+    margin-bottom:25px;
+    font-weight:700;
+}
+
+.hero-image{
+    height:550px;
+    object-fit:cover;
+}
+
+.carousel-caption{
+    background:rgba(0,0,0,.55);
+    border-radius:8px;
+    padding:25px;
+}
+
+.carousel-caption a{
+    color:white;
+    text-decoration:none;
+}
+
+.news-card{
+    transition:.25s;
+}
+
+.news-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 5px 18px rgba(0,0,0,.2);
+}
+
+.news-card img{
+    height:220px;
+    object-fit:cover;
+}
