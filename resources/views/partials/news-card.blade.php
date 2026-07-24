@@ -1,44 +1,60 @@
-<div class="col-lg-4 mb-4">
+<div class="col-md-6 col-xl-4 mb-4">
 
-    <div class="card h-100 shadow-sm">
+<div class="card h-100 shadow-sm">
 
-        @if($post->image)
+@if($post->image)
 
-            <img
-                src="{{ Voyager::image($post->image) }}"
-                class="card-img-top">
+<img
+src="{{ Voyager::image($post->image) }}"
+class="card-img-top"
+style="height:220px;object-fit:cover;">
 
-        @endif
+@endif
 
-        <div class="card-body">
+<div class="card-body">
 
-            <h5>
+@if($post->category)
 
-                {{ $post->title }}
+<span class="badge bg-primary mb-2">
 
-            </h5>
+{{ $post->category->name }}
 
-            <p>
+</span>
 
-                <!-- {{ Str::limit(strip_tags($post->excerpt),120) }} -->
-                  {{ \Illuminate\Support\Str::limit(strip_tags($post->excerpt ?? $post->body),120) }}
+@endif
 
-            </p>
+<h5>
 
-        </div>
+{{ $post->title }}
 
-        <div class="card-footer bg-white">
+</h5>
 
-            <a
-                href="{{ route('news.show',$post->slug) }}"
-                class="btn btn-outline-primary">
+<p>
 
-                Read More
+{{ \Illuminate\Support\Str::limit(strip_tags($post->excerpt ?? $post->body),120) }}
 
-            </a>
+</p>
 
-        </div>
+</div>
 
-    </div>
+<div class="card-footer bg-white">
+
+<small class="text-muted">
+
+{{ $post->created_at->format('d M Y') }}
+
+</small>
+
+<a
+href="{{ route('news.show',$post->slug) }}"
+class="btn btn-sm btn-danger float-end">
+
+Read
+
+</a>
+
+</div>
+
+</div>
 
 </div>

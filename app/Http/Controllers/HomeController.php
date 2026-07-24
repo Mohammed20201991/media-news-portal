@@ -2,24 +2,38 @@
 
 namespace App\Http\Controllers;
 
-// use TCG\Voyager\Models\Post;
+use TCG\Voyager\Models\Post;
 use TCG\Voyager\Models\Category;
-use TCG\Voyager\Models\Page;
-use App\Models\Post;
+
 class HomeController extends Controller
 {
-public function index()
+    public function index()
     {
-        $featured = Post::where('status','PUBLISHED')
-                        ->where('featured',1)
-                        ->latest()
-                        ->take(5)
-                        ->get();
+        // Featured posts
+        $featured = Post::published()
+            ->where('featured', 1)
+            ->latest()
+            ->take(5)
+            ->get();
 
-        $posts = Post::where('status','PUBLISHED')
-                    ->latest()
-                    ->paginate(9);
+        // Latest News
+        $posts = Post::published()
+            ->latest()
+            ->paginate(9);
 
-        return view('home', compact('featured','posts'));
+        // Categories with their latest posts
+        $sections = Category::with([
+            'posts' => function ($q) {
+                $q->take(6);
+            }
+        ])
+        ->orderBy('order')
+        ->get();
+
+        return view('home', compact(
+            'featured',
+            'posts',
+            'sections'
+        ));
     }
 }

@@ -6,37 +6,44 @@
 
 @include('partials.breaking-news')
 
-@include('partials.hero')
+@include('partials.carousel')
 
 <div class="row">
 
-    <div class="col-lg-8">
+<div class="col-lg-8">
 
-        <h3 class="mb-4">
+    @foreach($sections as $category)
 
-            Latest News
+        @include('partials.category-section',
+            ['category'=>$category])
 
-        </h3>
+    @endforeach
 
-        <div class="row">
+    <h2 class="mt-5 mb-4">
 
-            @foreach($posts as $post)
+        Latest News
 
-                @include('partials.news-card')
+    </h2>
 
-            @endforeach
+    <div class="row">
 
-        </div>
+        @foreach($posts as $post)
 
-        {{ $posts->links() }}
+            @include('partials.news-card')
 
-    </div>
-
-    <div class="col-lg-4">
-
-        @include('partials.sidebar')
+        @endforeach
 
     </div>
+
+    {{ $posts->links() }}
+
+</div>
+
+<div class="col-lg-4">
+
+    @include('partials.sidebar')
+
+</div>
 
 </div>
 
