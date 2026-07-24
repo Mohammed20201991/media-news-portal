@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
+@include('partials.menu')
+
 <div class="container">
 
 <a class="navbar-brand" href="{{ route('home') }}">

@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use TCG\Voyager\Models\Category;
 use TCG\Voyager\Models\Page;
+use TCG\Voyager\Models\Menu;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,6 +22,12 @@ public function boot(): void
 
         $view->with('pages',
             Page::where('status','ACTIVE')->get());
+
+        $view->with('frontendMenu',
+            Menu::where('name', 'frontend')
+            ->with('items.children')
+            ->first()
+    );
 
     });
 }
