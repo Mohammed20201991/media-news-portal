@@ -82,3 +82,50 @@ body{
     height:220px;
     object-fit:cover;
 }
+
+.article-body{
+
+    font-size:18px;
+
+    line-height:1.9;
+
+}
+
+.article-body img{
+
+    max-width:100%;
+
+    height:auto;
+
+}
+
+.article-body p{
+
+    margin-bottom:20px;
+
+}
+
+.article-body h2{
+
+    margin-top:35px;
+
+}
+
+.article-body h3{
+
+    margin-top:30px;
+
+}
+
+.article-body blockquote{
+
+    border-left:4px solid #b80000;
+
+    padding-left:20px;
+
+    color:#666;
+
+    font-style:italic;
+
+}
+

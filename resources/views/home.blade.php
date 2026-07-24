@@ -16,11 +16,11 @@ Latest News
 
 </h2>
 
-<div class="row">
+<div class="row g-4">
 
 @foreach($latest as $post)
 
-<div class="col-md-6 mb-4">
+<div class="col-lg-6 col-xl-6">
 
 @include('partials.news-card')
 

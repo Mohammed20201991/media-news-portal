@@ -4,57 +4,234 @@
 
 @section('content')
 
+@php
+    $readingTime = ceil(str_word_count(strip_tags($post->body)) / 200);
+@endphp
+
 <div class="row">
+
+    <!-- ===================== -->
+    <!-- Article -->
+    <!-- ===================== -->
 
     <div class="col-lg-8">
 
-        @if($post->image)
-            <img src="{{ Voyager::image($post->image) }}"
-                 class="img-fluid rounded mb-4"
-                 alt="{{ $post->title }}">
+        <!-- Breadcrumb -->
+
+        <nav class="mb-3">
+
+            <a href="{{ route('home') }}">Home</a>
+
+            @if($post->category)
+
+                /
+
+                <a href="{{ route('category.show',$post->category->slug) }}">
+
+                    {{ $post->category->name }}
+
+                </a>
+
+            @endif
+
+        </nav>
+
+        <!-- Category -->
+
+        @if($post->category)
+
+            <span class="badge bg-danger mb-2">
+
+                {{ $post->category->name }}
+
+            </span>
+
         @endif
 
-        <h1>{{ $post->title }}</h1>
+        <!-- Title -->
 
-        <p class="text-muted">
+        <h1 class="display-5 fw-bold mb-3">
 
-            Published:
-            {{ optional($post->created_at)->format('d M Y') }}
+            {{ $post->title }}
 
-        </p>
+        </h1>
+
+        <!-- Excerpt -->
+
+        @if(!empty($post->excerpt))
+
+            <p class="lead text-muted">
+
+                {{ $post->excerpt }}
+
+            </p>
+
+        @endif
+
+        <!-- Meta -->
+
+        <div class="text-muted mb-4">
+
+            <i class="bi bi-calendar3"></i>
+
+            {{ $post->created_at->format('d M Y') }}
+
+            &nbsp; | &nbsp;
+
+            <i class="bi bi-clock"></i>
+
+            {{ $readingTime }} min read
+
+        </div>
+
+        <!-- Featured Image -->
+
+        @if($post->image)
+
+            <img
+                src="{{ Voyager::image($post->image) }}"
+                class="img-fluid rounded shadow-sm mb-4"
+                alt="{{ $post->title }}">
+
+        @endif
+
+        <!-- Body -->
+
+        <div class="article-body">
+
+            {!! $post->body !!}
+
+        </div>
+
+        <!-- Share -->
 
         <hr>
 
-        {!! $post->body !!}
+        <div class="my-4">
 
-    </div>
+            <strong>Share:</strong>
 
-    <div class="col-lg-4">
+            <a class="btn btn-sm btn-primary ms-2"
+               target="_blank"
+               href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->fullUrl()) }}">
 
-        <div class="card">
+                <i class="bi bi-facebook"></i>
 
-            <div class="card-header">
+                Facebook
 
-                Latest News
+            </a>
+
+            <a class="btn btn-sm btn-dark"
+               target="_blank"
+               href="https://twitter.com/intent/tweet?url={{ urlencode(request()->fullUrl()) }}&text={{ urlencode($post->title) }}">
+
+                <i class="bi bi-twitter-x"></i>
+
+                X
+
+            </a>
+
+            <a class="btn btn-sm btn-info text-white"
+               target="_blank"
+               href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode(request()->fullUrl()) }}">
+
+                <i class="bi bi-linkedin"></i>
+
+                LinkedIn
+
+            </a>
+
+        </div>
+
+        <!-- Previous / Next -->
+
+        <hr>
+
+        <div class="row mb-5">
+
+            <div class="col-6">
+
+                @if($previous)
+
+                    <small class="text-muted">
+
+                        Previous Article
+
+                    </small>
+
+                    <br>
+
+                    <a href="{{ route('news.show',$previous->slug) }}">
+
+                        ← {{ $previous->title }}
+
+                    </a>
+
+                @endif
 
             </div>
 
-            <div class="list-group list-group-flush">
+            <div class="col-6 text-end">
 
-                @foreach(\TCG\Voyager\Models\Post::where('status','PUBLISHED')->latest()->take(5)->get() as $news)
+                @if($next)
 
-                    <a href="{{ route('news.show',$news->slug) }}"
-                       class="list-group-item list-group-item-action">
+                    <small class="text-muted">
 
-                        {{ $news->title }}
+                        Next Article
+
+                    </small>
+
+                    <br>
+
+                    <a href="{{ route('news.show',$next->slug) }}">
+
+                        {{ $next->title }} →
 
                     </a>
+
+                @endif
+
+            </div>
+
+        </div>
+
+        <!-- Related -->
+
+        @if($related->count())
+
+            <h3 class="mb-4">
+
+                Related Articles
+
+            </h3>
+
+            <div class="row">
+
+                @foreach($related as $relatedPost)
+
+                    <div class="col-md-6 mb-4">
+
+                        @include('partials.news-card', [
+                            'post' => $relatedPost
+                        ])
+
+                    </div>
 
                 @endforeach
 
             </div>
 
-        </div>
+        @endif
+
+    </div>
+
+    <!-- ===================== -->
+    <!-- Sidebar -->
+    <!-- ===================== -->
+
+    <div class="col-lg-4">
+
+        @include('partials.sidebar')
 
     </div>
 
