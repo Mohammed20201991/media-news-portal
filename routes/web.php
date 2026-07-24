@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\PageController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,3 +37,7 @@ Route::get('/category/{slug}',
 Route::get('/search',
     [SearchController::class,'index'])
     ->name('search');
+
+Route::get('/page/{slug}',
+    [PageController::class,'show'])
+    ->name('page.show');
