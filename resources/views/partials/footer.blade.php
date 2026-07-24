@@ -1,55 +1,103 @@
 <footer class="footer">
 
-<div class="container">
+    <div class="container">
 
-<div class="row">
+        <div class="row">
 
-<div class="col-md-4">
+            <!-- About -->
 
-<h5>About</h5>
+            <div class="col-lg-4 mb-4">
 
-<p>Professional multilingual news portal.</p>
+                <h4>{{ setting('site.title') }}</h4>
 
-</div>
+                <p class="mt-3">
 
-<div class="col-md-4">
+                    {{ setting('site.description') }}
 
-<h5>Categories</h5>
+                </p>
 
-<ul>
+            </div>
 
-@foreach($categories as $category)
+            <!-- Quick Links -->
 
-<li>
+            <div class="col-lg-4 mb-4">
 
-<a href="{{ route('category.show',$category->slug) }}">
+                <h5>Quick Links</h5>
 
-{{ $category->name }}
+                <ul class="list-unstyled">
 
-</a>
+                    <li>
+                        <a href="{{ route('home') }}">Home</a>
+                    </li>
 
-</li>
+                    <li>
+                        <a href="{{ route('search') }}">Search</a>
+                    </li>
 
-@endforeach
+                    <li>
+                        <a href="#">Privacy Policy</a>
+                    </li>
 
-</ul>
+                    <li>
+                        <a href="#">Terms of Use</a>
+                    </li>
 
-</div>
+                    <li>
+                        <a href="#">Contact Us</a>
+                    </li>
 
-<div class="col-md-4">
+                </ul>
 
-<h5>Follow Us</h5>
+            </div>
 
-Facebook
+            <!-- Contact -->
 
-Twitter
+            <div class="col-lg-4 mb-4">
 
-YouTube
+                <h5>Contact</h5>
 
-</div>
+                <p>
 
-</div>
+                    <i class="bi bi-geo-alt-fill me-2"></i>
 
-</div>
+                    {{ setting('site.address') }}
+
+                </p>
+
+                <p>
+
+                    <i class="bi bi-envelope-fill me-2"></i>
+
+                    <a href="mailto:{{ setting('site.email') }}">
+
+                        {{ setting('site.email') }}
+
+                    </a>
+
+                </p>
+
+                <p>
+
+                    <i class="bi bi-telephone-fill me-2"></i>
+
+                    {{ setting('site.phone') }}
+
+                </p>
+
+                @include('partials.social')
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="text-center">
+
+            {{ setting('site.copyright') }}
+
+        </div>
+
+    </div>
 
 </footer>

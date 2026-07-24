@@ -129,3 +129,197 @@ body{
 
 }
 
+
+.social-links a{
+    color:#fff;
+    margin-right:15px;
+    font-size:20px;
+    transition:.3s;
+}
+
+.social-links a:hover{
+    color:#ffc107;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.site-header{
+
+    background:#fff;
+
+    padding:18px 0;
+
+    border-bottom:1px solid #e5e5e5;
+
+}
+
+.site-logo{
+
+    width:80px;
+
+    height:80px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    background:#fff;
+
+    box-shadow:0 3px 12px rgba(0,0,0,.12);
+
+}
+
+.site-title{
+
+    color:#111;
+
+    font-size:34px;
+
+    font-weight:800;
+
+    letter-spacing:-1px;
+
+    margin:0;
+
+}
+
+.site-subtitle{
+
+    color:#b80000;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+}
+
+.header-ad{
+
+    width:728px;
+
+    max-width:100%;
+
+    height:90px;
+
+    margin-left:auto;
+
+    background:#f4f4f4;
+
+    border:1px solid #ddd;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#777;
+
+    font-weight:600;
+
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+.footer{
+
+    background:#111;
+
+    color:#ddd;
+
+    margin-top:70px;
+
+    padding:60px 0 30px;
+
+}
+
+.footer h4,
+.footer h5{
+
+    color:#fff;
+
+    margin-bottom:20px;
+
+}
+
+.footer p{
+
+    color:#bbb;
+
+}
+
+.footer a{
+
+    color:#ddd;
+
+    text-decoration:none;
+
+    transition:.25s;
+
+}
+
+.footer a:hover{
+
+    color:#fff;
+
+}
+
+.footer ul li{
+
+    margin-bottom:10px;
+
+}
+
+.footer hr{
+
+    border-color:#333;
+
+}
+
+.social-links{
+
+    margin-top:25px;
+
+}
+
+.social-links a{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:42px;
+
+    height:42px;
+
+    margin-right:10px;
+
+    border-radius:50%;
+
+    background:#222;
+
+    color:#fff;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+.social-links a:hover{
+
+    background:#b80000;
+
+    transform:translateY(-3px);
+
+}

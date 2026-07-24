@@ -9,13 +9,7 @@
         </div>
 
         <div>
-
-            <a href="#">Facebook</a>
-
-            <a href="#">Twitter</a>
-
-            <a href="#">YouTube</a>
-
+            @include('partials.social')
         </div>
 
     </div>
