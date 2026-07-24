@@ -8,13 +8,14 @@ class RSSController extends Controller
 {
     public function index()
     {
-        $posts = Post::where('status', 'PUBLISHED')
+        $posts = Post::with('category')
+            ->where('status', 'PUBLISHED')
             ->latest()
-            ->take(30)
+            ->take(50)
             ->get();
 
         return response()
             ->view('rss.index', compact('posts'))
-            ->header('Content-Type', 'application/xml');
+            ->header('Content-Type', 'application/rss+xml; charset=UTF-8');
     }
 }

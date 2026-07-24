@@ -21,6 +21,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.m
 @if(app()->getLocale()=='ar')
 <link rel="stylesheet" href="{{ asset('css/rtl.css') }}">
 @endif
+<link rel="alternate"  type="application/rss+xml"  title="{{ setting('site.title') }} RSS Feed"  href="{{ route('rss') }}">
 
 </head>
 
